@@ -48,7 +48,9 @@ def enche_esqueleto(palavra, letras):
 def cria_palavra(letras_permutadas, palavra_esqueleto):
     lista_palavras = []
     for tuplas in letras_permutadas:
-        lista_palavras.append(enche_esqueleto(palavra_esqueleto, tuplas))
+        palavra = enche_esqueleto(palavra_esqueleto, tuplas)
+        if palavra not in lista_palavras:
+            lista_palavras.append(palavra)
     return lista_palavras
 
 def checa_existencia(lista_palavras):
@@ -58,3 +60,10 @@ def checa_existencia(lista_palavras):
         if (dicionario.check(palavras)) and palavras not in lista_palavras_reais:
             lista_palavras_reais.append(palavras)
     return lista_palavras_reais
+
+def retira_letras_conhecidas(letras, informacoes):
+    lista_letras = list(letras)
+    for elementos in informacoes:
+        letra = elementos[0]
+        lista_letras.remove(letra)
+    return "".join(lista_letras)

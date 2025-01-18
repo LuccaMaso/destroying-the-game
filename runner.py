@@ -7,6 +7,7 @@ def main():
     if informacoes == ['']:
         informacoes = []
 
+    letras = algorithm.retira_letras_conhecidas(letras, informacoes)
     palavra_esqueleto = algorithm.cria_esqueleto(tam_palavra, informacoes)
     letras_permutadas = algorithm.permuta_letras(letras, tam_palavra - len(informacoes))
     lista_palavras = algorithm.cria_palavra(letras_permutadas, palavra_esqueleto)
